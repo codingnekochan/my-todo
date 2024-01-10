@@ -13,21 +13,36 @@
   <title>Frontend Mentor | Todo app</title>
 
 </head>
-<body>
-  <header class="">
-    <h1>My Todo</h1>
-    <h2 class="text-4xl text-blue-700">My Webpack + Tailwind App</h1>
-    <div class="toggle-theme">
-      <button class="light">Toggle theme</button>
-    </div>
+<body class="relative w-full bg-stone-50 flex flex-col justify-center items-center">
+  <header class="w-full hero-mobile light h-[30vh] px-4 py-8">
+    <div class="flex justify-between items-center border-solid border-black border-2">
+       <h1 class="font-bold text-2xl text-white tracking-widest">MY.TODO</h1>
+       <button class="toggle dark w-8 h-8 border-2"></button>
+    </div>  
   </header>
-  <main class="todo-list">
-   <input type="checkbox" name="" id="" class="rounded-full">
-   <label for="fname" class="sr-only">New todo</label>
-   <input type="text" id="fname" name="fname" class="border-solid border-2">
-
-  </main>
-  <section>
+  <main class="todo w-[91%] absolute top-[50%] font-normal text-lg border-4 border-black">
+    <section class="create-todo flex mb-4 bg-stone-50 rounded-lg p-2 border-4 border-black ">
+      <input type="checkbox" name="" id="" class="w-6 h-6 border-[1px] border-[#5e5e5e48] rounded-full appearance-none mx-2">
+      <label for="fname" class="sr-only">New todo</label>
+      <input type="text" id="fname" name="fname" class="w-[80%]">
+    </section>
+    <section class="todo-list">
+      <div class="todo-item flex justify-between">
+         <input type="checkbox" class="custom-check toggle-todo-status">
+         <p>Clean my room</p>
+         <button class="button delete-item">X</button>
+      </div>
+       <div class="todo-item flex justify-between">
+         <input type="checkbox" class="custom-check toggle-todo-status">
+         <p>Clean my room</p>
+         <button class="button delete-item">X</button>
+      </div>
+      <div class="todo-item flex justify-between">
+         <input type="checkbox" class="custom-check toggle-todo-status">
+         <p>Clean my room</p>
+         <button class="button delete-item">X</button>
+      </div>
+    <section>
     <div class="filter-button">
       <button>All</button>
       <button>Active</button>
@@ -37,5 +52,7 @@
   <button>Clear Completed</button>
     </div>
   </section>
+  </main>
+ 
 </body>
 </html>
