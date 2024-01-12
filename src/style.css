@@ -2,32 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-.hero-mobile.light{ 
-    background: url("/src/images/bg-mobile-light.jpg") no-repeat center;
-     background-size: cover;
+.hero-mobile.light {
+  background: url("/src/images/bg-mobile-light.jpg") no-repeat center;
+  background-size: cover;
 }
-.hero-mobile.dark{
-    background: url("/src/images/bg-mobile-dark.jpg") no-repeat center;
-     background-size: cover;
+.hero-mobile.dark {
+  background: url("/src/images/bg-mobile-dark.jpg") no-repeat center;
+  background-size: cover;
 }
-.toggle.light{
-    background: url("/src/images/icon-sun.svg") no-repeat center;
-     background-size: contain;
+.toggle.light {
+  background: url("/src/images/icon-sun.svg") no-repeat center;
+  background-size: contain;
 }
-.toggle.dark{
-    background: url("/src/images/icon-moon.svg") no-repeat center;
-    background-size: contain;
+.toggle.dark {
+  background: url("/src/images/icon-moon.svg") no-repeat center;
+  background-size: contain;
 }
-.custom-check{
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    border: 1px solid hsla(0, 0%, 37%, 0.282);
-    appearance: none;
+.custom-check {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid hsla(0, 0%, 37%, 0.282);
+  appearance: none;
 }
-.custom-check:checked{
-    padding: 4px;
-    border:none;
-    background: linear-gradient( 90deg, hsl(192, 100%, 67%)0%,hsl(280, 87%, 65%)100%);
-    content : url("/src/images/icon-check.svg")
+.custom-check:checked {
+  padding: 4px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    hsl(192, 100%, 67%) 0%,
+    hsl(280, 87%, 65%) 100%
+  );
+  content: url("/src/images/icon-check.svg");
+}
+.delete-item {
+  width: 20px;
+  height: 20px;
+  background: blue;
+}
+.delete-item:hover {
+  background: url("/src/images/icon-cross.svg") no-repeat center;
+  background-size: contain;
+}
+.active{
+    color: hsl(220, 98%, 61%);
 }

@@ -13,45 +13,57 @@
   <title>Frontend Mentor | Todo app</title>
 
 </head>
-<body class="relative w-full bg-stone-50 flex flex-col justify-center items-center">
+<body class="relative w-full bg-very-light-grey flex flex-col justify-center items-center">
   <header class="w-full hero-mobile light h-[30vh] px-4 py-8">
-    <div class="flex justify-between items-center border-solid border-black border-2">
-       <h1 class="font-bold text-2xl text-white tracking-widest">MY.TODO</h1>
-       <button class="toggle dark w-8 h-8 border-2"></button>
+    <div class="flex justify-between items-center">
+       <h1 class="font-bold text-2xl text-l-very-light-grey tracking-widest">MY.TODO</h1>
+       <button class="toggle dark w-8 h-8"></button>
     </div>  
   </header>
-  <main class="todo w-[91%] absolute top-[50%] font-normal text-lg border-4 border-black">
-    <section class="create-todo flex mb-4 bg-stone-50 rounded-lg p-2 border-4 border-black ">
-      <input type="checkbox" name="" id="" class="w-6 h-6 border-[1px] border-[#5e5e5e48] rounded-full appearance-none mx-2">
+  <main class="todo w-[91%] absolute top-[50%] font-normal text-lg shadow-[0_80px_100px_-25px_rgba(0,0,0,0.3)] rounded-lg">
+    <section class="create-todo flex items-center mb-5 bg-l-very-light-grey p-3 rounded-lg">
+      <div class="w-6 h-6 border-[1px] border-[#5e5e5e48] mt-[2px] rounded-full appearance-none mx-2"></div>
       <label for="fname" class="sr-only">New todo</label>
-      <input type="text" id="fname" name="fname" class="w-[80%]">
+      <input type="text" id="fname" name="fname" class="w-[80%] bg-inherit text-l-very-dark-grey-blue ml-3 outline-none placeholder:text-very-light-grey-blue" placeholder="Create a new todo..">
     </section>
     <section class="todo-list">
-      <div class="todo-item flex justify-between">
+      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey rounded-t-lg">
          <input type="checkbox" class="custom-check toggle-todo-status">
-         <p>Clean my room</p>
-         <button class="button delete-item">X</button>
+         <p class="w-[80%] text-l-very-dark-grey-blue">Clean my room</p>
+         <button class="button delete-item"></button>
       </div>
-       <div class="todo-item flex justify-between">
+      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey">
          <input type="checkbox" class="custom-check toggle-todo-status">
-         <p>Clean my room</p>
-         <button class="button delete-item">X</button>
+         <p class="text-l-very-dark-grey-blue">Clean my room</p>
+         <button class="button delete-item"></button>
       </div>
-      <div class="todo-item flex justify-between">
+      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey">
          <input type="checkbox" class="custom-check toggle-todo-status">
-         <p>Clean my room</p>
-         <button class="button delete-item">X</button>
+         <p class="text-l-very-dark-grey-blue">Clean my room</p>
+         <button class="button delete-item"></button>
       </div>
-    <section>
-    <div class="filter-button">
-      <button>All</button>
-      <button>Active</button>
-      <button>Completed</button>
-    </div>
-    <div class="clear-button">
-  <button>Clear Completed</button>
-    </div>
-  </section>
+      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey">
+         <input type="checkbox" class="custom-check toggle-todo-status">
+         <p class="text-l-very-dark-grey-blue">Clean my room</p>
+         <button class="button delete-item"></button>
+      </div>
+    </section> 
+    <section class="flex justify-between pt-3 pb-4 mt-2 text-l-dark-grey-blue text-center font-bold">
+      <div class="pl-3">
+        <p><span class="todo-counter">4</span> items left </p>
+      </div>
+      <div class="w-[100%] z-10 bg-l-very-light-grey flex justify-center gap-5 border-2 px-5 py-3 filter-button absolute top-[105%] rounded-lg">
+        <button class="active hover:text-l-very-dark-grey-blue">All</button>
+        <button class="hover:text-l-very-dark-grey-blue">Active</button>
+        <button class="hover:text-l-very-dark-grey-blue">Completed</button>
+      </div>
+      <div class="clear-button pr-3 hover:text-l-very-dark-grey-blue">
+        <button>Clear Completed</button>
+      </div>
+    </section>
+    <footer class="w-[100%] place-items-end absolute bottom-[-40%] text-center text-l-dark-grey-blue text-sm font-bold">
+     <p>Drag and drop to reorder list</p>
+   </footer>
   </main>
  
 </body>
