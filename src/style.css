@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.hero-mobile.light {
-  background: url("/src/images/bg-mobile-light.jpg") no-repeat center;
-  background-size: cover;
-}
-.hero-mobile.dark {
-  background: url("/src/images/bg-mobile-dark.jpg") no-repeat center;
-  background-size: cover;
-}
-.toggle.light {
-  background: url("/src/images/icon-sun.svg") no-repeat center;
-  background-size: contain;
-}
-.toggle.dark {
-  background: url("/src/images/icon-moon.svg") no-repeat center;
-  background-size: contain;
-}
 .custom-check {
   width: 25px;
   height: 25px;
