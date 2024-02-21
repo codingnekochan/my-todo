@@ -21,44 +21,25 @@
     <section class="create-todo flex items-center mb-5 bg-l-very-light-grey p-3 rounded-lg dark:bg-d-very-dark-desaturated-blue">
       <div class="w-6 h-6 border-[1px] border-[#5e5e5e48] mt-[2px] rounded-full appearance-none mx-2"></div>
       <label for="fname" class="sr-only">New todo</label>
-      <input type="text" id="new-todo" name="fname" class="w-[80%] bg-inherit text-l-very-dark-grey-blue ml-3 outline-none placeholder:text-very-light-grey-blue dark:text-d-light-grey-blue" placeholder="Create a new todo..">
+      <input type="text" id="new-todo" name="fname" class="w-[80%] bg-inherit text-l-very-dark-grey-blue ml-3 outline-none  placeholder:text-very-light-grey-blue dark:text-d-light-grey-blue" placeholder="Create a new todo..">
     </section>
-    <section class="todo-list">
-      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey rounded-t-lg dark:bg-d-very-dark-desaturated-blue dark:border-d-very-dark-grey-blue">
-         <input type="checkbox" class="custom-check toggle-todo-status">
-         <p class="w-[80%] text-l-very-dark-grey-blue dark:text-d-light-grey-blue">Clean my room</p>
-         <button class="button delete-item"></button>
-      </div>
-      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey dark:bg-d-very-dark-desaturated-blue  dark:border-d-very-dark-grey-blue">
-         <input type="checkbox" class="custom-check toggle-todo-status">
-         <p class="w-[80%] text-l-very-dark-grey-blue dark:text-d-light-grey-blue">Clean my room</p>
-         <button class="button delete-item"></button>
-      </div>
-      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey dark:bg-d-very-dark-desaturated-blue  dark:border-d-very-dark-grey-blue">
-         <input type="checkbox" class="custom-check toggle-todo-status">
-         <p class="w-[80%] text-l-very-dark-grey-blue dark:text-d-light-grey-blue">Clean my room</p>
-         <button class="button delete-item"></button>
-      </div>
-      <div class="todo-item flex justify-between border-l-light-grey-blue border-b-2 p-3 bg-l-very-light-grey dark:bg-d-very-dark-desaturated-blue  dark:border-d-very-dark-grey-blue">
-         <input type="checkbox" class="custom-check toggle-todo-status">
-         <p class="w-[80%] text-l-very-dark-grey-blue dark:text-d-light-grey-blue">Clean my room</p>
-         <button class="button delete-item"></button>
-      </div>
+    <section class="todo-list rounded-lg">
+
     </section> 
-    <section class="flex justify-between pt-4 pb-4 text-l-dark-grey-blue text-center lg:text-sm dark:bg-d-very-dark-desaturated-blue rounded-b-lg">
+    <section class="flex justify-between pt-4 pb-4 text-l-very-dark-grey-blue text-center lg:text-sm bg-l-very-light-grey dark:bg-d-very-dark-desaturated-blue rounded-b-lg">
       <div class="pl-3">
         <p><span class="todo-counter">4</span> items left </p>
       </div>
       <div class="w-[100%] z-10 bg-l-very-light-grey flex justify-center gap-5 px-5 py-3 filter-button absolute top-[105%] rounded-lg lg:relative lg:bg-none lg:border-none lg:w-[38%] lg:z-0 lg:gap-0 lg:justify-between lg:px-0 lg:py-0 dark:bg-inherit">
-        <button class="active hover:text-l-very-dark-grey-blue hover:font-bold">All</button>
-        <button class="hover:text-l-very-dark-grey-blue">Active</button>
-        <button class="hover:text-l-very-dark-grey-blue">Completed</button>
+        <button id="all" class="list_all hover:text-l-very-light-grey">All</button>
+        <button id="active" class="list_active hover:text-l-very-light-grey">Active</button>
+        <button id = "completed" class="list_completed hover:text-l-very-light-grey">Completed</button>
       </div>
-      <div class="clear-button pr-3 hover:text-l-very-dark-grey-blue hover:font-bold">
+      <div class="clear-button pr-3 hover:text-l-very-light-grey hover:font-bold">
         <button>Clear Completed</button>
       </div>
     </section>
-    <footer class="w-[100%] place-items-end absolute bottom-[-40%] text-center text-l-dark-grey-blue text-sm font-bold">
+    <footer class="w-[100%] place-items-end absolute lg:bottom-[-40%] bottom-[-70%] text-center text-l-very-dark-grey-blue dark:text-l-dark-grey-blue text-sm font-bold">
      <p>Drag and drop to reorder list</p>
    </footer>
   </main>

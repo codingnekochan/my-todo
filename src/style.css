@@ -19,15 +19,18 @@
   );
   content: url("/src/images/icon-check.svg");
 }
-.delete-item {
+.delete-item{
+  /* display: none; */
   width: 20px;
   height: 20px;
-  background: blue;
-}
-.delete-item:hover {
   background: url("/src/images/icon-cross.svg") no-repeat center;
   background-size: contain;
 }
-.active{
+button:active,button:focus{
     color: hsl(220, 98%, 61%);
+    font-weight:bold;
+}
+.completed{
+  color:#9394a5;
+  text-decoration: line-through #9394a5 1px;
 }
