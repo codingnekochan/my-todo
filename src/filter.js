@@ -7,11 +7,19 @@ export let completedTodo;
 
 export function filterActiveTodo(){
    activeTodo = todoArray.filter((todo)=> {
-    return !todo.completed})
-    return console.log(activeTodo);
+    return !todo.completed
+  })
+    return activeTodo;
 }
 export function filterCompletedTodo(){
    completedTodo = todoArray.filter((todo)=>{
-    return todo.completed})
-    return console.log(completedTodo);
+    return todo.completed
+  })
+  return completedTodo;
 }
+
+export function clearCompletedTodo(){
+  filterCompletedTodo();
+  completedTodo.forEach(todo => todo.deleteTodo())
+}
+

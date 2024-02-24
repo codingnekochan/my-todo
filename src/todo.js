@@ -9,9 +9,7 @@ class Todo {
   }
   deleteTodo() {
     let index = todoArray.indexOf(this);
-    if (index < todoArray.length){
     todoArray.splice(index, 1);
-  }
     return todoArray;
   }
   changeStatus() {

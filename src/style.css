@@ -19,6 +19,13 @@
   );
   content: url("/src/images/icon-check.svg");
 }
+.todo-item{
+  width: 100%;
+}
+.todo-info{
+  width: 78f%;
+
+}
 .delete-item{
   /* display: none; */
   width: 20px;

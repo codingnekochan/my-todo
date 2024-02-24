@@ -3,13 +3,44 @@ import "./style.css";
 // imported variables from the othher modules
 import { todoArray } from "./todo.js";
 import { newTodo } from "./todo.js";
-import { activeTodo, filterCompletedTodo } from "./filter";
+import { activeTodo} from "./filter";
 import { completedTodo } from "./filter";
 import { createNewTodo } from "./todo.js";
 import { filterActiveTodo } from "./filter";
+import { filterCompletedTodo } from "./filter";
+import { clearCompletedTodo } from "./filter";
+// DOM ELEMENTS
+const todoList = document.querySelector(".todo-list");
+const Buttons = document.querySelectorAll("button");
+const activeTodoCounter = document.querySelector('.todo-counter');
+// DOM EVENT LISTENERS
+// Add New todo
+  newTodo.addEventListener("keydown", handleAddTodo);
+//Button events
+Buttons.forEach((button)=>{
+  button.addEventListener('click', (e)=>{
+    // filter by active
+  if (e.target.id=== "active"){
+      filterActiveTodo()
+      displayTodo(activeTodo)
+    }  
+    // filter by completed todo
+  else if (e.target.id=== "completed"){
+      filterCompletedTodo();
+      displayTodo(completedTodo);
+    }
+    // clear completed todo
+    else if (e.target.id === "clear"){
+      clearCompletedTodo();
+      displayTodo(todoArray);
+    }
+    // display all todo;
+  else{
+    displayTodo(todoArray);
+  }
+})
+})
 
-// Add New todo event
-    newTodo.addEventListener("keydown", handleAddTodo);
 // event functions
     function handleAddTodo(e) {
       if (e.key === "Enter" || e.code === "Enter") {
@@ -18,29 +49,14 @@ import { filterActiveTodo } from "./filter";
         newTodo.value = "";
       }
 }
-const todoList = document.querySelector(".todo-list");
-const filterButtons = document.querySelectorAll('button');
-filterButtons.forEach((button)=>{
-  button.addEventListener('click', (e)=>{ 
-  if (e.target.id=== "active"){
-      filterActiveTodo()
-      displayTodo(activeTodo)
-    }  
-    else if (e.target.id=== "completed"){
-      filterCompletedTodo();
-      displayTodo(completedTodo);
-    }
-  else{
-    displayTodo(todoArray);
-  }
-})
-})
+
 // DOM functions;
 function displayTodo(currentArray) {
   // clear list
    todoList.innerHTML = "";
-   currentArray.forEach( (todo) => {
+   currentArray.forEach((todo) => {
     updateTodoList(todo)
+    getNumberOfActiveTodo();
   }
   )
 }
@@ -61,7 +77,7 @@ function updateTodoList(todo){
       "dark:bg-d-very-dark-desaturated-blue",
       "dark:border-d-very-dark-grey-blue"
     );
-    // handle the checkbox
+    // add the checkbox
     checkTodo.type = "checkbox";
     checkTodo.classList.add("custom-check");
     checkTodo.checked = todo.completed;
@@ -69,8 +85,9 @@ function updateTodoList(todo){
       "todo-info",
       "w-[76%]"
     );
-    todoStatus(checkTodo, todoInfo);
-    // handle the todo button
+    todoInfo.setAttribute('draggable', true)
+    showTodoStatus(checkTodo, todoInfo);
+    // add the todo button
     deleteTodoButton.classList.add("delete-item");
     // append elements
     todoList.insertAdjacentElement("afterbegin", todoItem);
@@ -80,11 +97,14 @@ function updateTodoList(todo){
     // element content;
     todoInfo.textContent = todo.todo;
     // handle the event listeners for the eachtodo items;
-    checkTodo.addEventListener("change", (e) => {
+    // handle checkbox event
+    checkTodo.addEventListener("change", () => {
       todo.changeStatus();
-      todoStatus(checkTodo, todoInfo);
+      showTodoStatus(checkTodo, todoInfo)
+      getNumberOfActiveTodo();
       console.log(todoArray);
     });
+    // handle delete button event
     deleteTodoButton.addEventListener("click", () => {
       todo.deleteTodo();
       todoList.removeChild(todoItem);
@@ -92,9 +112,7 @@ function updateTodoList(todo){
   todoList.firstChild.classList.add("rounded-t-lg");
   }
 
-
-function todoStatus(checkbox,todoText) {
-  // let todoInfo = checkbox.nextElementSibling;
+function showTodoStatus(checkbox,todoText) {
   if (checkbox.checked === true) {
     todoText.classList.add("completed");
     todoText.classList.remove(
@@ -110,4 +128,10 @@ function todoStatus(checkbox,todoText) {
     );
     console.log("unchecked");
   }
+}
+
+function getNumberOfActiveTodo() {
+  filterActiveTodo();
+  activeTodoCounter.textContent = activeTodo.length;
+  return activeTodo.length;
 }
