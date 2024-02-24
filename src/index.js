@@ -10,6 +10,7 @@ import { filterActiveTodo } from "./filter";
 import { filterCompletedTodo } from "./filter";
 import { clearCompletedTodo } from "./filter";
 // DOM ELEMENTS
+const htmlBody = document.querySelector('html')
 const todoList = document.querySelector(".todo-list");
 const Buttons = document.querySelectorAll("button");
 const activeTodoCounter = document.querySelector('.todo-counter');
@@ -33,6 +34,9 @@ Buttons.forEach((button)=>{
     else if (e.target.id === "clear"){
       clearCompletedTodo();
       displayTodo(todoArray);
+    }
+    else if (e.target.id === "toggle"){
+      toggleDarkMode()
     }
     // display all todo;
   else{
@@ -135,4 +139,8 @@ function getNumberOfActiveTodo() {
   filterActiveTodo();
   activeTodoCounter.textContent = activeTodo.length;
   return activeTodo.length;
+}
+function toggleDarkMode(){
+ htmlBody.classList.toggle('dark');
+ console.log('enabled')
 }
