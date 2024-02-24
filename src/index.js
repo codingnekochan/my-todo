@@ -18,33 +18,34 @@ const activeTodoCounter = document.querySelector('.todo-counter');
 // Add New todo
   newTodo.addEventListener("keydown", handleAddTodo);
 //Button events
-Buttons.forEach((button)=>{
-  button.addEventListener('click', (e)=>{
-    // filter by active
-  if (e.target.id=== "active"){
-      filterActiveTodo()
-      displayTodo(activeTodo)
-    }  
-    // filter by completed todo
-  else if (e.target.id=== "completed"){
-      filterCompletedTodo();
-      displayTodo(completedTodo);
-    }
-    // clear completed todo
-    else if (e.target.id === "clear"){
-      clearCompletedTodo();
-      displayTodo(todoArray);
-    }
-    else if (e.target.id === "toggle"){
-      toggleDarkMode()
-    }
-    // display all todo;
-  else{
-    displayTodo(todoArray);
-  }
-})
-})
+Buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    switch (e.target.id) {
+      case "active":
+        filterActiveTodo();
+        displayTodo(activeTodo);
+        break;
 
+      case "completed":
+        filterCompletedTodo();
+        displayTodo(completedTodo);
+        break;
+
+      case "clear":
+        clearCompletedTodo();
+        displayTodo(todoArray);
+        break;
+
+      case "toggle":
+        toggleDarkMode();
+        break;
+
+      default:
+        displayTodo(todoArray);
+        break;
+    }
+  });
+});
 // event functions
     function handleAddTodo(e) {
       if (e.key === "Enter" || e.code === "Enter") {
