@@ -107,6 +107,7 @@ function updateTodoList(todo){
     // handle delete button event
     deleteTodoButton.addEventListener("click", () => {
       todo.deleteTodo();
+      getNumberOfActiveTodo();
       todoList.removeChild(todoItem);
     });
   todoList.firstChild.classList.add("rounded-t-lg");
