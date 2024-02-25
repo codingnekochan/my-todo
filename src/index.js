@@ -48,7 +48,8 @@ Buttons.forEach((button) => {
         createNewTodo();
         displayTodo(todoArray);
         newTodo.value = "";
-        handleDragandDrop();
+        handleDragandDrop()
+        ;
 
       }
 }
