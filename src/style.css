@@ -22,9 +22,14 @@
 .todo-item{
   width: 100%;
 }
+.todo-item:first-child{
+  border-radius: 8px 8px 0 0;
+}
+.todo-item:hover{
+  cursor:grab;
+}
 .todo-info{
   width: 78%;
-
 }
 .delete-item{
   /* display: none; */
@@ -40,4 +45,7 @@ button:active,button:focus{
 .completed{
   color:#9394a5;
   text-decoration: line-through #9394a5 1px;
+}
+.dragging{
+  opacity: 0.2;
 }

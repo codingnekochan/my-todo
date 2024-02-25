@@ -1,5 +1,4 @@
 // this module handles the logic of adding and removing todos from the array.
-
 export const todoArray = [];
 export const newTodo = document.getElementById("new-todo");
 class Todo {

@@ -1,14 +1,9 @@
-//  this module handles DOM manipulation and UI interaction of the todo app
+//  this module handles DOM manipulation, events and UI interaction of the todo app
 import "./style.css";
 // imported variables from the othher modules
-import { todoArray } from "./todo.js";
-import { newTodo } from "./todo.js";
-import { activeTodo} from "./filter";
-import { completedTodo } from "./filter";
-import { createNewTodo } from "./todo.js";
-import { filterActiveTodo } from "./filter";
-import { filterCompletedTodo } from "./filter";
-import { clearCompletedTodo } from "./filter";
+import { todoArray, newTodo, createNewTodo } from "./todo.js";
+import { activeTodo, completedTodo, filterActiveTodo, filterCompletedTodo, clearCompletedTodo} from "./filter.js";
+import { handleDragandDrop } from "./dragdrop.js";
 // DOM ELEMENTS
 const htmlBody = document.querySelector('html')
 const todoList = document.querySelector(".todo-list");
@@ -46,12 +41,15 @@ Buttons.forEach((button) => {
     }
   });
 });
+
 // event functions
     function handleAddTodo(e) {
       if (e.key === "Enter" || e.code === "Enter") {
         createNewTodo();
         displayTodo(todoArray);
         newTodo.value = "";
+        handleDragandDrop();
+
       }
 }
 
@@ -71,7 +69,7 @@ function updateTodoList(todo){
     let checkTodo = document.createElement("input");
     let todoInfo = document.createElement("p");
     let deleteTodoButton = document.createElement("button");
-    // add element classes
+    // add element classes and attributes
     todoItem.classList.add(
       "todo-item",
       "flex",
@@ -81,7 +79,8 @@ function updateTodoList(todo){
       "bg-l-very-light-grey",
       "dark:bg-d-very-dark-desaturated-blue",
       "dark:border-d-very-dark-grey-blue"
-    );
+    )
+    todoItem.setAttribute('draggable', true)
     // add the checkbox
     checkTodo.type = "checkbox";
     checkTodo.classList.add("custom-check");
@@ -90,7 +89,6 @@ function updateTodoList(todo){
       "todo-info",
       "w-[76%]"
     );
-    todoInfo.setAttribute('draggable', true)
     showTodoStatus(checkTodo, todoInfo);
     // add the todo button
     deleteTodoButton.classList.add("delete-item");
@@ -107,7 +105,7 @@ function updateTodoList(todo){
       todo.changeStatus();
       showTodoStatus(checkTodo, todoInfo)
       getNumberOfActiveTodo();
-      console.log(todoArray);
+      // console.log(todoArray);
     });
     // handle delete button event
     deleteTodoButton.addEventListener("click", () => {
@@ -115,11 +113,9 @@ function updateTodoList(todo){
       getNumberOfActiveTodo();
       todoList.removeChild(todoItem);
     });
-  todoList.firstChild.classList.add("rounded-t-lg");
   }
-
 function showTodoStatus(checkbox,todoText) {
-  if (checkbox.checked === true) {
+  if (checkbox.checked) {
     todoText.classList.add("completed");
     todoText.classList.remove(
       "text-l-very-dark-grey-blue",
@@ -132,7 +128,7 @@ function showTodoStatus(checkbox,todoText) {
       "text-l-very-dark-grey-blue",
       "dark:text-d-light-grey-blue"
     );
-    console.log("unchecked");
+    // console.log("unchecked");
   }
 }
 
