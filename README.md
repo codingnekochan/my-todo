@@ -31,7 +31,7 @@ Users should be able to:
 
 
 ### Links
-- Live Site URL: [MY.TODO]([(https://codingnekochan.github.io/my-todo/)])
+- Live Site URL: [MY.TODO](https://codingnekochan.github.io/my-todo/)
 
 ## My process
 
