@@ -51,7 +51,7 @@ appButtons.forEach((button) => {
 });
 // DOM functions;
 function handleAddTodo(e) {
-  if (e.key === "Enter" || e.code === "Enter") {
+  if (e.key === "Enter" || e.code === "Enter" || e.keycode === 13) {
     createNewTodo(newTodo);
     storeTodo();
     displayTodo(todoArray);
