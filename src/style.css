@@ -30,6 +30,7 @@
 }
 .todo-info{
   width: 78%;
+  margin: 8px;
 }
 .delete-item{
   /* display: none; */

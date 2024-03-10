@@ -1,26 +1,26 @@
-// this module handles the logic of adding and removing todos from the array.
-export const todoArray = [];
-export const newTodo = document.getElementById("new-todo");
+/*THIS MODULE HANDLES THE CREATION OF NEW TODOS AND THEIR METHODS USING CLASS*/
+import { storeTodo } from "./storage";
+export const todoArray = JSON.parse(localStorage.getItem('todoArray'))||[];
 class Todo {
-  constructor() {
-    this.todo = newTodo.value;
+  constructor(todo) {
+    this.text = todo;
     this.completed = false;
   }
-  deleteTodo() {
-    let index = todoArray.indexOf(this);
-    todoArray.splice(index, 1);
-    return todoArray;
-  }
-  changeStatus() {
-    this.completed =
-      this.completed === false
-        ? (this.completed = true)
-        : (this.completed = false);
-  }
+  // changeStatus() {
+  //   this.completed = !this.completed;
+  // }
 }
-export function createNewTodo() {
-  let todoArrayItem = new Todo();
+export function createNewTodo(todo) {
+  let todoArrayItem = new Todo(todo.value);
   todoArray.push(todoArrayItem);
   return console.log(todoArray);
 }
 
+export function deleteTodo(todo) {
+   let index = todoArray.indexOf(todo);
+   console.log(index)
+   todoArray.splice(index, 1);
+   storeTodo()
+   console.log(todoArray)
+return todoArray;
+}

@@ -1,48 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="/src/images/favicon-32x32.png">
-  <title>Frontend Mentor | Todo app</title>
-</head>
-<body class="relative w-full bg-very-light-grey flex flex-col justify-center items-center dark:bg-d-very-dark-blue">
-  <header class="w-full bg-[url('/src/images/bg-mobile-light.jpg')] md:bg-[url('/src/images/bg-desktop-light.jpg')] dark:bg-[url('/src/images/bg-mobile-dark.jpg')] md:dark:bg-[url('/src/images/bg-desktop-dark.jpg')] bg-cover bg-no-repeat h-[30vh] px-4 py-8">
-    <div class="flex justify-between items-center md:w-[40%] lg:w-[30%] m-auto">
-       <h1 class="font-bold text-2xl text-l-very-light-grey tracking-widest">MY.TODO</h1>
-       <button id="toggle" class="toggle bg-[url('/src/images/icon-moon.svg')] dark:bg-[url('/src/images/icon-sun.svg')] bg-contain bg-no-repeat w-6 h-6"></button>
-    </div>  
-  </header>
-  <main class="todo w-[91%] absolute top-[50%] font-normal text-lg shadow-[0_80px_100px_-25px_rgba(0,0,0,0.3)] rounded-lg md:w-[40%] lg:w-[30%] lg:shadow-2xl">
-    <section class="create-todo flex items-center mb-5 bg-l-very-light-grey p-3 rounded-lg dark:bg-d-very-dark-desaturated-blue">
-      <div class="w-6 h-6 border-[1px] border-[#5e5e5e48] mt-[2px] rounded-full appearance-none mx-2"></div>
-      <label for="fname" class="sr-only">New todo</label>
-      <input type="text" id="new-todo" name="fname" class="w-[80%] bg-inherit text-l-very-dark-grey-blue ml-3 outline-none  placeholder:text-very-light-grey-blue dark:text-d-light-grey-blue" placeholder="Create a new todo.." required>
-    </section>
-    <section class="todo-list rounded-lg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body
+    class="relative w-full bg-very-light-grey flex flex-col justify-center items-center dark:bg-d-very-dark-blue"
+  >
+    <header
+      class="w-full bg-[url('/src/images/bg-mobile-light.jpg')] md:bg-[url('/src/images/bg-desktop-light.jpg')] dark:bg-[url('/src/images/bg-mobile-dark.jpg')] md:dark:bg-[url('/src/images/bg-desktop-dark.jpg')] bg-cover bg-no-repeat h-[30vh] px-4 py-8"
+    >
+      <div
+        class="flex justify-between items-center md:w-[40%] lg:w-[30%] m-auto"
+      >
+        <h1 class="font-bold text-2xl text-l-very-light-grey tracking-widest">
+          MY.TODO
+        </h1>
+        <button
+          id="toggle"
+          class="toggle bg-[url('/src/images/icon-moon.svg')] dark:bg-[url('/src/images/icon-sun.svg')] bg-contain bg-no-repeat w-6 h-6"
+        ></button>
+      </div>
+    </header>
+    <main
+      class="todo w-[91%] bg-none absolute top-[50%] font-normal text-lg rounded-lg md:w-[40%] lg:w-[30%] shadow-[0px_80px_100px_-25px_rgba(0,0,0,0.3)] lg:shadow-2xl"
+    >
+      <section
+        class="create-todo flex items-center mb-3 md:mb-5g:mb-6 l bg-l-very-light-grey p-3 rounded-lg dark:bg-d-very-dark-desaturated-blue"
+      >
+        <div
+          class="w-6 h-6 border-[1px] border-[#5e5e5e48] mt-[2px] rounded-full appearance-none mx-2"
+        ></div>
+        <label for="new-todo" class="sr-only">New todo</label>
+        <input
+          type="text"
+          id="new-todo"
+          name="fname"
+          class="w-[80%] bg-inherit text-l-very-dark-grey-blue ml-3 outline-none placeholder:text-very-light-grey-blue dark:text-d-light-grey-blue"
+          placeholder="Create a new todo.."
+          required
+        />
+      </section>
+      <section
+        class="todo-list-section"
+      >
+        <ul class="todo-list rounded-lg"></ul>
+        <section
+          class="todo-tabs flex justify-between pt-4 pb-4 text-l-very-dark-grey-blue text-center lg:text-sm bg-l-very-light-grey dark:text-d-dark-grey-blue dark:bg-d-very-dark-desaturated-blue rounded-b-lg"
+        >
+          <div class="pl-3">
+            <p><span class="todo-counter">0</span> items left</p>
+          </div>
+          <div
+            class="w-[100%] z-10 bg-l-very-light-grey flex justify-center gap-5 px-5 py-3 filter-button absolute top-[105%] rounded-lg lg:relative lg:bg-none lg:border-none lg:w-[38%] lg:z-0 lg:gap-0 lg:justify-between lg:px-0 lg:py-0 dark:bg-inherit"
+          >
+            <button
+              id="all"
+              class="list_all hover:text-d-dark-grey-blue dark:hover:text-l-very-light-grey"
+            >
+              All
+            </button>
+            <button
+              id="active"
+              class="list_active hover:text-d-dark-grey-blue hover: dark:hover:text-l-very-light-grey"
+            >
+              Active
+            </button>
+            <button
+              id="completed"
+              class="list_completed hover:text-d-dark-grey-blue dark:hover:text-l-very-light-grey"
+            >
+              Completed
+            </button>
+          </div>
+          <div class="pr-3 hover:text-d-dark-grey-blue hover:font-bold">
+            <button id="clear">Clear Completed</button>
+          </div>
+        </section>
+      </section>
 
-    </section> 
-    <section class="flex justify-between pt-4 pb-4 text-l-very-dark-grey-blue text-center lg:text-sm bg-l-very-light-grey dark:bg-d-very-dark-desaturated-blue rounded-b-lg">
-      <div class="pl-3">
-        <p><span class="todo-counter">0</span> items left </p>
-      </div>
-      <div class="w-[100%] z-10 bg-l-very-light-grey flex justify-center gap-5 px-5 py-3 filter-button absolute top-[105%] rounded-lg lg:relative lg:bg-none lg:border-none lg:w-[38%] lg:z-0 lg:gap-0 lg:justify-between lg:px-0 lg:py-0 dark:bg-inherit">
-        <button id="all" class="list_all hover:text-d-dark-grey-blue dark:hover:text-l-very-light-grey">All</button>
-        <button id="active" class="list_active hover:text-d-dark-grey-blue hover: dark:hover:text-l-very-light-grey">Active</button>
-        <button id = "completed" class="list_completed hover:text-d-dark-grey-blue dark:hover:text-l-very-light-grey">Completed</button>
-      </div>
-      <div class="pr-3 hover:text-l-very-light-grey hover:font-bold">
-        <button id="clear">Clear Completed</button>
-      </div>
-    </section>
-    <footer class="w-[100%] place-items-end absolute lg:bottom-[-40%] bottom-[-70%] text-center text-l-very-dark-grey-blue dark:text-l-dark-grey-blue text-sm font-bold">
-     <p>Drag and drop to reorder list</p>
-   </footer>
-  </main>
- 
-</body>
+      <footer
+        class="w-[100%] place-items-end absolute lg:bottom-[-40%] bottom-[-70%] text-center text-l-very-dark-grey-blue dark:text-l-dark-grey-blue text-sm font-bold"
+      >
+        <p>Drag and drop to reorder list</p>
+      </footer>
+    </main>
+  </body>
 </html>

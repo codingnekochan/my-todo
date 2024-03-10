@@ -1,18 +1,18 @@
-
+/* THIS MODULE HANDLES USER SORTING OF TODOS BY DRAG AND DROP */
 export function handleDragandDrop() {
 const sortableItems = document.querySelectorAll(".todo-item");
 const sortableList = document.querySelector(".todo-list");
-
-  sortableItems.forEach((item) => {
+sortableItems.forEach((item) => {
     item.addEventListener("dragstart", () => {
       item.classList.add("dragging");
     });
-
     item.addEventListener("dragend", () => {
       item.classList.remove("dragging");
     });
-  });
-  sortableList.addEventListener("dragover", (e) => {
+});
+sortableList.addEventListener("dragover", initSortableList);
+sortableList.addEventListener('dragenter', e => e.preventDefault())
+  function initSortableList(e) {
     e.preventDefault();
     const belowMouseElement = getBelowMousePositionElement(
       sortableList,
@@ -24,19 +24,17 @@ const sortableList = document.querySelector(".todo-list");
     } else {
       sortableList.insertBefore(draggable, belowMouseElement);
     }
-  });
-  sortableList.addEventListener('dragenter', (e)=>{
-    e.preventDefault()
-  })
+  }
 }
+
 //   get closest element that the mouse positon is directly before it i.e above that element
 function getBelowMousePositionElement(container, y) {
   //   y is position of mouse on screen
   //   container is the sortable List of items
   const draggableElements = [
+    // get an array of elements except element being dragged
     ...container.querySelectorAll(".todo-item:not(.dragging)"),
-
-  ]; // get an array of elements except element being dragged
+  ]; 
   const BelowMousePosition = draggableElements.reduce(
     // determines the position of the element the mouse is above;
     (closest, child) => {
@@ -52,6 +50,5 @@ function getBelowMousePositionElement(container, y) {
     },
     { offset: Number.NEGATIVE_INFINITY }
   );
-  console.log(BelowMousePosition.offset);
   return BelowMousePosition.element;
 }
