@@ -19,34 +19,36 @@
   );
   content: url("/src/images/icon-check.svg");
 }
-.todo-item{
+.todo-item {
   width: 100%;
 }
-.todo-item:first-child{
+.todo-item:first-child {
   border-radius: 8px 8px 0 0;
 }
-.todo-item:hover{
-  cursor:grab;
+.todo-item:hover {
+  cursor: grab;
 }
-.todo-info{
+.todo-info {
   width: 78%;
   margin: 8px;
 }
-.delete-item{
+.delete-item {
   /* display: none; */
   width: 20px;
   height: 20px;
   background: url("/src/images/icon-cross.svg") no-repeat center;
   background-size: contain;
 }
-button:active,button:focus{
-    color: hsl(220, 98%, 61%);
-    font-weight:bold;
+button:active,
+button:focus,
+button:focus-visible {
+  color: hsl(220, 98%, 61%);
+  font-weight: bold;
 }
-.completed{
-  color:#9394a5;
+.completed {
+  color: #9394a5;
   text-decoration: line-through #9394a5 1px;
 }
-.dragging{
+.dragging {
   opacity: 0.2;
 }

@@ -19,9 +19,8 @@ export function filterCompletedTodo() {
 
 export function clearCompletedTodo() {
   filterCompletedTodo();
-  completedTodo.forEach((todo) =>{
-   deleteTodo(todo) 
-   storeTodo()
-  }
-   );
+  completedTodo.forEach((todo) => {
+    deleteTodo(todo);
+    storeTodo();
+  });
 }

@@ -1,6 +1,6 @@
 /*THIS MODULE HANDLES THE CREATION OF NEW TODOS AND THEIR METHODS USING CLASS*/
 import { storeTodo } from "./storage";
-export const todoArray = JSON.parse(localStorage.getItem('todoArray'))||[];
+export const todoArray = JSON.parse(localStorage.getItem("todoArray")) || [];
 class Todo {
   constructor(todo) {
     this.text = todo;
@@ -17,10 +17,10 @@ export function createNewTodo(todo) {
 }
 
 export function deleteTodo(todo) {
-   let index = todoArray.indexOf(todo);
-   console.log(index)
-   todoArray.splice(index, 1);
-   storeTodo()
-   console.log(todoArray)
-return todoArray;
+  let index = todoArray.indexOf(todo);
+
+  todoArray.splice(index, 1);
+  storeTodo();
+  console.log(todoArray);
+  return todoArray;
 }

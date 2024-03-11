@@ -1,7 +1,13 @@
 /*THIS MODULE HANDLES DOM, UI AND EVENTS OF THE WEB APP */
 // Imports
 import "./style.css";
-import { Todo, todoArray, createNewTodo, deleteTodo, updateStatus } from "./todo.js";
+import {
+  Todo,
+  todoArray,
+  createNewTodo,
+  deleteTodo,
+  updateStatus,
+} from "./todo.js";
 import {
   activeTodo,
   completedTodo,
@@ -10,7 +16,8 @@ import {
   clearCompletedTodo,
 } from "./filter.js";
 import { handleDragandDrop } from "./dragdrop.js";
-import { storeTodo, getTodo, handleStorage } from "./storage.js";
+import { storeTodo } from "./storage.js";
+import { toggleDarkMode, defaultTheme } from "./theme.js";
 // DOM Elements
 const htmlBody = document.querySelector("html");
 const todoList = document.querySelector(".todo-list");
@@ -40,7 +47,7 @@ appButtons.forEach((button) => {
         break;
 
       case "toggle":
-        toggleDarkMode();
+        toggleDarkMode(htmlBody);
         break;
 
       default:
@@ -50,13 +57,17 @@ appButtons.forEach((button) => {
   });
 });
 // DOM functions;
+defaultTheme(htmlBody);
 function handleAddTodo(e) {
   if (e.key === "Enter" || e.code === "Enter" || e.keycode === 13) {
+    if (newTodo.value === "") {
+      return;
+    }
     createNewTodo(newTodo);
     storeTodo();
     displayTodo(todoArray);
     newTodo.value = "";
-    newTodo.focus()
+    newTodo.focus();
   }
 }
 function displayTodo(currentArray) {
@@ -64,7 +75,7 @@ function displayTodo(currentArray) {
   currentArray.forEach((todo) => {
     renderTodoList(todo);
     getNumberOfActiveTodo();
-    handleDragandDrop()
+    handleDragandDrop();
   });
 }
 function renderTodoList(todo) {
@@ -104,9 +115,9 @@ function renderTodoList(todo) {
   // handle checkbox event
   checkTodo.addEventListener("change", () => {
     todo.completed = !todo.completed;
-    showTodoStatus(todo,checkTodo,todoInfo);
+    showTodoStatus(todo, checkTodo, todoInfo);
     getNumberOfActiveTodo();
-    storeTodo()
+    storeTodo();
   });
   // handle delete button event
   deleteTodoButton.addEventListener("click", () => {
@@ -115,15 +126,14 @@ function renderTodoList(todo) {
     getNumberOfActiveTodo();
   });
 }
-function showTodoStatus(todo,checkbox,todoText) {
-  if(todo.completed === true && checkbox.checked === true) {
+function showTodoStatus(todo, checkbox, todoText) {
+  if (todo.completed === true && checkbox.checked === true) {
     todoText.classList.add("completed");
     todoText.classList.remove(
       "text-l-very-dark-grey-blue",
       "dark:text-d-light-grey-blue"
     );
   } else {
-
     todoText.classList.remove("completed");
     todoText.classList.add(
       "text-l-very-dark-grey-blue",
@@ -135,8 +145,4 @@ function getNumberOfActiveTodo() {
   filterActiveTodo();
   activeTodoCounter.textContent = activeTodo.length;
 }
-function toggleDarkMode() {
-  htmlBody.classList.toggle("dark");
-}
-// storeTodo();
 displayTodo(todoArray);
