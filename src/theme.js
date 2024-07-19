@@ -1,9 +1,9 @@
-export const systemTheme = window.matchMedia(
+const systemTheme = window.matchMedia(
   "(prefers-color-scheme: dark)"
 ).matches;
-export const userTheme = localStorage.getItem("theme");
+const userTheme = localStorage.getItem("theme");
 let theme = "dark";
-export function defaultTheme(page) {
+function defaultTheme(page) {
   if (userTheme === "dark" || (!userTheme && systemTheme)) {
     page.classList.remove("light");
     page.classList.add("dark");
@@ -13,7 +13,7 @@ export function defaultTheme(page) {
     page.classList.add("light");
   }
 }
-export function toggleDarkMode(page) {
+function toggleDarkMode(page) {
   page.classList.toggle("dark");
   if (page.classList.contains("dark")) {
     theme = "dark";
@@ -22,3 +22,4 @@ export function toggleDarkMode(page) {
   }
   localStorage.setItem("theme", theme);
 }
+export{defaultTheme,toggleDarkMode}

@@ -2,11 +2,9 @@
 // Imports
 import "./style.css";
 import {
-  Todo,
   todoArray,
   createNewTodo,
   deleteTodo,
-  updateStatus,
 } from "./todo.js";
 import {
   activeTodo,
@@ -15,7 +13,7 @@ import {
   filterCompletedTodo,
   clearCompletedTodo,
 } from "./filter.js";
-import { handleDragandDrop } from "./dragdrop.js";
+import  handleDragandDrop  from "./dragdrop.js";
 import { storeTodo } from "./storage.js";
 import { toggleDarkMode, defaultTheme } from "./theme.js";
 // DOM Elements

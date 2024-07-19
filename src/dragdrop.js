@@ -1,5 +1,5 @@
 /* THIS MODULE HANDLES USER SORTING OF TODOS BY DRAG AND DROP */
-export function handleDragandDrop() {
+export default function handleDragandDrop() {
   const sortableItems = document.querySelectorAll(".todo-item");
   const sortableList = document.querySelector(".todo-list");
   sortableItems.forEach((item) => {
@@ -26,7 +26,6 @@ export function handleDragandDrop() {
     }
   }
 }
-
 //   get closest element that the mouse positon is directly before it i.e above that element
 function getBelowMousePositionElement(container, y) {
   //   y is position of mouse on screen
